@@ -33,20 +33,20 @@ module "eks" {
 #     instance_types = ["m6i.large", "m5.large", "m5n.large", "m5zn.large"]
 #   }
 
-  eks_managed_node_groups = {
-    group_a = {
-      min_size     = 1
-      max_size     = 10
-      desired_size = 1
+  # eks_managed_node_groups = {
+  #   group_a = {
+  #     min_size     = 1
+  #     max_size     = 10
+  #     desired_size = 1
 
-      instance_types = ["t3.micro"]
-      capacity_type  = "SPOT"
-      iam_role_name  = "${var.project}-${var.environment}-cluster-managed-node"
-			iam_role_additional_policies = {
-					AmazonSSMManagedInstanceCore = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-			}
-    }
-  }
+  #     instance_types = ["t3.micro"]
+  #     capacity_type  = "SPOT"
+  #     iam_role_name  = "${var.project}-${var.environment}-cluster-managed-node"
+	# 		iam_role_additional_policies = {
+	# 				AmazonSSMManagedInstanceCore = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+	# 		}
+  #   }
+  # }
 
   # Fargate Profile(s)
   fargate_profiles = {
@@ -55,6 +55,12 @@ module "eks" {
       selectors = [
         {
           namespace = "default"
+        },
+        {
+          namespace = "demo"
+        },
+        {
+          namespace = "kube-system"
         }
       ]
     }
