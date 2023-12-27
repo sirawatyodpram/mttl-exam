@@ -19,7 +19,7 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - id: change directory to go-app folder
+    - name: change directory to go-app folder
       run: cd go-app
     
     - name: Build and push
