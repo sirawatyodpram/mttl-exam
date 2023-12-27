@@ -1,4 +1,4 @@
-name: Build and deploy on development env
+name: Build and deploy appplication
 'on':
   push:
     branches:
