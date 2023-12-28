@@ -8,7 +8,7 @@ image:
   repository: fpunthira/mttl-exam-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 9b91bf185d22b22fd7bf569f5b440099f74488db
+  tag: 6e126811a04ba2cdd94118aecd266f2b7e60aebb
 
 imagePullSecrets: []
 nameOverride: ""
