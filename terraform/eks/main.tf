@@ -61,9 +61,21 @@ module "eks" {
         },
         {
           namespace = "kube-system"
+        },
+        {
+          namespace = "argocd"
         }
       ]
     }
+
+    app = {
+        name = "app"
+        selectors = [
+          {
+            namespace = "exam"
+          }
+        ]
+      }
   }
 
   # aws-auth configmap
