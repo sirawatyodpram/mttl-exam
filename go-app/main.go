@@ -32,10 +32,19 @@ func GetKey(w http.ResponseWriter, r *http.Request) {
 	w.Write(res)
 }
 
+func Healthcheck(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Println("The status code we got is:", http.StatusOK)
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("Status 200 OK"))
+}
+
+
 func main() {
 	c, _ = localCache.NewCache(1000)
 	http.HandleFunc("/put", PutKey)
 	http.HandleFunc("/get", GetKey)
+	http.HandleFunc("/healthcheck", Healthcheck)
 	if err := http.ListenAndServe(":8000", nil); err != nil {
 		log.Fatal(err)
 	}

@@ -8,13 +8,13 @@ COPY main.go main.go
 
 RUN go mod download
 
-RUN go build -o localcache main.go
+RUN go build main.go
 
 FROM golang:1.18-alpine3.17 AS runner
 WORKDIR /go/app
 
-COPY --from=builder /workspace/localcache .
+COPY --from=builder /workspace/main .
 
 EXPOSE 8000
 
-CMD ["localcache"]
+CMD ["./main"]
