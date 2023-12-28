@@ -47,5 +47,7 @@ jobs:
     
     - name: Commit the changes made
       run: | 
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
         git commit -am "updating image tag"
         git push
