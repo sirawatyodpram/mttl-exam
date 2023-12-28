@@ -41,7 +41,7 @@ func Healthcheck(w http.ResponseWriter, r *http.Request) {
 
 
 func main() {
-	c, _ = localCache.NewCache(800)
+	c, _ = localCache.NewCache(1000)
 	http.HandleFunc("/put", PutKey)
 	http.HandleFunc("/get", GetKey)
 	http.HandleFunc("/healthcheck", Healthcheck)
